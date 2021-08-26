@@ -1,4 +1,5 @@
-﻿using PortalGroupAssesment.Entites;
+﻿using PortalGroupAssesment.DataAccessLayer.EntityFramework;
+using PortalGroupAssesment.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,10 @@ namespace PortalGroupAssesment.Services.Abstract
 {
     public abstract class BaseCustomerManager : ICustomerService
     {
-        public void Add(Customer customer)
+        ICustomerDal _customerDal;
+        public virtual void Add(Customer customer)
         {
-            /// db save kodları
+            _customerDal.Add(customer);
         }
     }
 }
